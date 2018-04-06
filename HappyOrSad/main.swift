@@ -18,9 +18,9 @@ guard let input = rawInput else {
 }
 
 // Print out the input provided
-print("You said:")
-print(rawInput) // optional string
-print(input) // non-optional
+//print("You said:")
+//print(rawInput) // optional string
+//print(input) // non-optional
 
 // number of happy and sad
 var numberHappy = 0
@@ -30,11 +30,11 @@ var numberSad = 0
 for individualCharacter in input {
  
     // Debug
-    print(individualCharacter)
+    //print(individualCharacter)
     
     
     //Categorize the character
-    if individualCharacter == "😃" || individualCharacter == "☺️" || individualCharacter == "🙂" || individualCharacter == "😄" {
+    if individualCharacter == "😃" || individualCharacter == "😊" || individualCharacter == "🙂" || individualCharacter == "😄" {
         // Track a happy
         numberHappy += 1
     } else if individualCharacter == "☹️" || individualCharacter == "🙁" || individualCharacter == "😕" || individualCharacter == "😔" {
@@ -44,7 +44,7 @@ for individualCharacter in input {
 }
 
 if numberHappy > numberSad {
-    print("Happy")
+    print("happy")
 } else if numberSad > numberHappy {
     print("sad")
 } else if numberHappy == numberSad && numberSad != 0 {
