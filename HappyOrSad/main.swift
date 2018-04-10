@@ -8,14 +8,42 @@
 
 import Foundation
 
+//Input
+
+//Loop forever until valid input is given.
+var validInput = ""
+while 1 == 1 {
+ 
+    // Make sure input was given (creat a string from the string?)
+    guard let input = readLine() else {
+        
+        // Tell the user there was a problem
+        print("Please enter a string with at least 1 character and no more than 255 characters.")
+        // Go to next iteration of the loop
+        continue
+    }
+    
+    // Is the string the correct length?
+    if input.count < 1 || input.count > 255 {
+        
+        // Tell the user there was a problem
+        print("Please enter a string with at least 1 character and no more than 255 characters.")
+        // Go to next iteration of the loop
+        continue
+        
+    }
+    
+    // If we got this far the input ig=s guaranteed to be valid
+    validInput = input
+    break // Very important. Stops while loop
+    
+}
+
+
 // Get the user input
 var rawInput = readLine()
 
-// Make sure input was given (creat a string from the string?)
-guard let input = rawInput else {
-    //Error
-    exit(9)
-}
+
 
 // Print out the input provided
 //print("You said:")
@@ -27,19 +55,22 @@ var numberHappy = 0
 var numberSad = 0
 
 // Process - inspect each character
-for individualCharacter in input {
+for individualCharacter in validInput {
  
     // Debug
     //print(individualCharacter)
     
     
     //Categorize the character
-    if individualCharacter == "😃" || individualCharacter == "😊" || individualCharacter == "🙂" || individualCharacter == "😄" {
-        // Track a happy
+    
+    switch individualCharacter{
+    case "😃", "😊", "🙂", "😄":
         numberHappy += 1
-    } else if individualCharacter == "☹️" || individualCharacter == "🙁" || individualCharacter == "😕" || individualCharacter == "😔" {
-    // Track sad
+    case "☹️", "🙁", "😕", "😔":
         numberSad += 1
+    default:
+            break // do nothing
+        
     }
 }
 
